@@ -1,0 +1,9 @@
+step1/**
+.aider.*
+.aider.*/**
+.openai/**
+.terraform*
+terraform.state*
+oa
+oa.question
+response.txt
