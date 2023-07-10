@@ -19,7 +19,7 @@ variable "files" {
 resource "local_file" "file" {
   for_each = var.files
 
-  filename        = each.value["filename"]
+  filename        = each.key
   content         = each.value["content"]
   file_permission = each.value["permissions"]
 }

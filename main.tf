@@ -4,7 +4,7 @@ locals {
 
 module "my_file" {
   source = "./tfmod"
-  files  = each.value
+  files  = local.files
 }
 
 output "show_files" {
