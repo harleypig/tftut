@@ -1,0 +1,9 @@
+file1:
+  filename: testit1.txt
+  content: this is the content
+  permissions: 0644
+
+file2:
+  filename: testit2.txt
+  content: this is also the content
+  permissions: 0600
