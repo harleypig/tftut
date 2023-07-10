@@ -1,9 +1,9 @@
-file1:
+testit1.txt:
   filename: testit1.txt
   content: this is the content
   permissions: 0644
 
-file2:
+testit2.txt:
   filename: testit2.txt
   content: this is also the content
   permissions: 0600

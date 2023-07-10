@@ -3,7 +3,8 @@ step1/**
 .aider.*/**
 .openai/**
 .terraform*
-terraform.state*
+terraform.tfstate*
 oa
 oa.question
 response.txt
+testit*

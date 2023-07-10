@@ -6,7 +6,7 @@ terraform {
 
 variable "files" {
   type = map(object({
-    filename    = string,
+    #filename    = string,
     content     = string,
     permissions = string
   }))
@@ -17,6 +17,7 @@ variable "files" {
 #}
 
 resource "local_file" "file" {
+  #for_each = local.files
   for_each = var.files
 
   filename        = each.key

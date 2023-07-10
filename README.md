@@ -9,20 +9,13 @@ seeing how they were created in Terraform.
 In this tutorial you will learn how to modify the data structure for your
 needs.
 
-## Simple example
+## Using a yaml map of maps
 
-* Create files using `files-simple.yml`
+* Create and change to directory `create_from_yaml`
+* Create main.tf
+* Create and change to module directory `tfmod`
+* Create module main.tf
+* Go back one directory to `create_from_yaml`
+* Create yaml file `files-maps.yml`
 
-Straight import, no modifications needed in either the data or the code.
-
-```hcl
-locals { data = yamldecode(file("files-simple.yml")) }
-
-module "my_file" {
-  for_each = local.data
-
-  source = "./tfmod"
-  files  = each.value
-}
-```
-
+## Using a yaml list of maps
