@@ -13,8 +13,10 @@ needs.
 
 * Create and change to directory `create_from_yaml`
 * Create main.tf
+  * This file is the main Terraform configuration file. It uses the `yamldecode` function to read the `files-maps.yml` file and store its content in a local variable. It then calls the `my_file` module, passing the local variable as an argument.
 * Create and change to module directory `tfmod`
 * Create module main.tf
+  * This file is the Terraform module configuration file. It defines a variable `files` that expects a map of objects. It then creates a `local_file` resource for each item in the `files` map, using the map's keys and values to set the resource's properties.
 * Go back one directory to `create_from_yaml`
 * Create yaml file `files-maps.yml`
 
