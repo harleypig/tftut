@@ -28,7 +28,7 @@ We'll start with the same code at the end of the loop_in_module tutorial.
 
 ## Using a yaml map of maps
 
-!!! Use map_of_maps directory
+!!! Use section1.1 directory
 
 !!! Note differences between loop_in_module (end of last tutorial) and
 !!! map_of_maps
@@ -107,7 +107,9 @@ modloop2:
 ```
 
 * terraform init && terraform fmt && terraform validate
-* terraform plan
+  + show error that results
+
+!!! use section1.2 directory
 
 ## Using a yaml list of maps
 
