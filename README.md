@@ -24,6 +24,9 @@ We'll start with the same code at the end of the loop_in_module tutorial.
 
 !!! Use map_of_maps directory
 
+!!! Note differences between loop_in_module (end of last tutorial) and
+!!! map_of_maps
+
 * Create and change to directory `create_from_yaml`
 * Create main.tf
 * Add code to main.tf
