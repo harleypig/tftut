@@ -92,14 +92,11 @@ resource "local_file" "file" {
 * Create `files.yml` with the following content:
 
 ```yaml
-file1.txt:
+modloop1:
   content: "Hello, World!"
   permissions: "0644"
-file2.txt:
+modloop2:
   content: "Hello, Terraform!"
-  permissions: "0644"
-file3.txt:
-  content: "Hello, YAML!"
   permissions: "0644"
 ```
 
@@ -145,14 +142,11 @@ the properties of the object.
 * Modify `files.yml` to have a list of maps.
 
 ```yaml
-- filename: "file1.txt"
+- filename: "modloop1"
   content: "Hello, World!"
   permissions: "0644"
-- filename: "file2.txt"
+- filename: "modloop2"
   content: "Hello, Terraform!"
-  permissions: "0644"
-- filename: "file3.txt"
-  content: "Hello, YAML!"
   permissions: "0644"
 ```
 
