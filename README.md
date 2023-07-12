@@ -73,6 +73,8 @@ A set of maps is a dict, where the value can be a simple type or an object.
 
 ## Convert a list of maps
 
+!!! Use use_for directory
+
 We need to convert that to a dict. We can use the `merge` function to create
 a set of maps.
 
