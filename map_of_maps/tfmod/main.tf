@@ -1,17 +1,3 @@
-terraform {
-  required_providers {
-    local = { source = "hashicorp/local" }
-  }
-}
-
-variable "files" {
-  type = map(object({
-    filename    = string,
-    content     = string,
-    permissions = string
-  }))
-}
-
 locals {
   files = { for file in var.files : file["filename"] => file }
 }
