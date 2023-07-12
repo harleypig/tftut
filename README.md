@@ -34,25 +34,6 @@ We'll start with the same code at the end of the loop_in_module tutorial.
 !!! map_of_maps
 
 * Create and change to directory `create_from_yaml`
-* Create `main.tf` with the following content:
-
-```hcl
-locals {
-  files = yamldecode(file("files.yml"))
-}
-
-module "my_file" {
-  source = "./tfmod"
-  files  = local.files
-}
-```
-
-Here we add a locals block.
-
-This block is used to define a local variable `files` which is assigned the
-value returned by the `yamldecode(file("files.yml"))` function. This function
-reads the `files.yml` file and decodes the YAML content into a Terraform value.
-
 * Create and change to module directory `tfmod`
 * Create `versions.tf` with the following content:
 
@@ -95,6 +76,25 @@ resource "local_file" "file" {
 * Create `outputs.tf` (this file is currently empty)
 
 * Go back one directory to `create_from_yaml`
+* Create `main.tf` with the following content:
+
+```hcl
+locals {
+  files = yamldecode(file("files.yml"))
+}
+
+module "my_file" {
+  source = "./tfmod"
+  files  = local.files
+}
+```
+
+Here we add a locals block.
+
+This block is used to define a local variable `files` which is assigned the
+value returned by the `yamldecode(file("files.yml"))` function. This function
+reads the `files.yml` file and decodes the YAML content into a Terraform value.
+
 * Create `files.yml` with the following content:
 
 ```yaml
