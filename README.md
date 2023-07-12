@@ -100,10 +100,10 @@ reads the `files.yml` file and decodes the YAML content into a Terraform value.
 ```yaml
 modloop1:
   content: "This is modloop1"
-  permissions: "0777"
+  permissions: "0644"
 modloop2:
   content: "This is modloop2"
-  permissions: "0777"
+  permissions: "0644"
 ```
 
 * terraform init && terraform fmt && terraform validate
