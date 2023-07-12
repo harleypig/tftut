@@ -17,7 +17,7 @@ needs.
 * Create main.tf
 * Add code
   * This file is the main Terraform configuration file. It uses the
-    `yamldecode` function to read the `files-maps.yml` file and store its
+    `yamldecode` function to read the `files.yml` file and store its
     content in a local variable. It then calls the `my_file` module, passing
     the local variable as an argument.
 
