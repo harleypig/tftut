@@ -88,7 +88,17 @@ resource "local_file" "file" {
 * Create outputs.tf (this file is currently empty)
 
 * Go back one directory to `create_from_yaml`
-* Create yaml file `files.yml`
+* Create yaml file `files.yml` with the following content:
+
+```yaml
+file1.txt:
+  content: "Hello, World!"
+  permissions: "0644"
+file2.txt:
+  content: "Hello, Terraform!"
+  permissions: "0644"
+```
+
 * terraform init && terraform fmt && terraform validate
 * terraform plan
 
