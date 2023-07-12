@@ -75,10 +75,14 @@ A set of maps is a dict, where the value can be a simple type or an object.
 
 !!! Use use_for directory
 
-We need to convert that input to a set of maps. We can use the `for` function to create
-a set of maps. The `for` function in Terraform allows you to iterate over a collection and transform it into a new collection. In this case, we are transforming a list of maps into a set of maps. This is done by iterating over each map in the list and creating a new map with the desired structure.
+We need to convert that input to a set of maps. We can use the `for` function
+to create a set of maps. The `for` function in Terraform allows you to iterate
+over a collection and transform it into a new collection. In this case, we are
+transforming a list of maps into a set of maps. This is done by iterating over
+each map in the list and creating a new map with the desired structure.
 
-Here is an example of how you can use the `for` function to convert a list of maps to a set of maps:
+Here is an example of how you can use the `for` function to convert a list of
+maps to a set of maps:
 
 ```hcl
 locals {
@@ -87,7 +91,10 @@ locals {
 }
 ```
 
-In this example, `local._files` is a list of maps. The `for` function iterates over each map in the list (represented by `file`), and for each iteration, it creates a new map where the key is `file["filename"]` and the value is the entire `file` map. The result is a set of maps stored in `local.files`.
+In this example, `local._files` is a list of maps. The `for` function iterates
+over each map in the list (represented by `file`), and for each iteration, it
+creates a new map where the key is `file["filename"]` and the value is the
+entire `file` map. The result is a set of maps stored in `local.files`.
 
 * Modify `main.tf` to use a for loop and create a set of maps
 * terraform init && terraform fmt && terraform validate
