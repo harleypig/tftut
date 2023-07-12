@@ -49,11 +49,9 @@ terraform {
 
 ```hcl
 variable "files" {
-  type = map(object({
-    filename    = string,
-    content     = string,
-    permissions = string
-  }))
+  type        = string
+  description = "name of yaml file"
+  default     = "files.yml"
 }
 ```
 
