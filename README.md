@@ -34,8 +34,7 @@ We'll start with the same code at the end of the loop_in_module tutorial.
 !!! map_of_maps
 
 * Create and change to directory `create_from_yaml`
-* Create main.tf
-* Add code to main.tf
+* Create `main.tf` with the following content:
 
 ```hcl
 locals {
@@ -46,15 +45,10 @@ module "my_file" {
   source = "./tfmod"
   files  = local.files
 }
-
-output "show_files" {
-  value = local.files
-}
 ```
 
 * Create and change to module directory `tfmod`
-* Create versions.tf
-* Add code to versions.tf
+* Create `versions.tf` with the following content:
 
 ```hcl
 terraform {
@@ -64,8 +58,7 @@ terraform {
 }
 ```
 
-* Create variables.tf
-* Add code to variables.tf
+* Create `variables.tf` with the following content:
 
 ```hcl
 variable "files" {
@@ -77,8 +70,7 @@ variable "files" {
 }
 ```
 
-* Create main.tf
-* Add code to main.tf
+* Create `main.tf` with the following content:
 
 ```hcl
 locals {
@@ -94,10 +86,10 @@ resource "local_file" "file" {
 }
 ```
 
-* Create outputs.tf (this file is currently empty)
+* Create `outputs.tf` (this file is currently empty)
 
 * Go back one directory to `create_from_yaml`
-* Create yaml file `files.yml` with the following content:
+* Create `files.yml` with the following content:
 
 ```yaml
 file1.txt:
