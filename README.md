@@ -134,9 +134,12 @@ A set of maps is a dict, where the value can be a simple type or an object.
 
 !!! Use list_of_maps directory and show_first directories.
 
-In some cases, your YAML data might be structured as a list of maps. This is a common format for representing a collection of similar objects. Each map in the list represents an object, and the keys and values in the map represent the properties of the object.
+In some cases, your YAML data might be structured as a list of maps. This is
+a common format for representing a collection of similar objects. Each map in
+the list represents an object, and the keys and values in the map represent
+the properties of the object.
 
-Here is an example of a list of maps in YAML:
+* Modify `files.yml` to have a list of maps.
 
 ```yaml
 - filename: "file1.txt"
@@ -147,15 +150,22 @@ Here is an example of a list of maps in YAML:
   permissions: "0644"
 ```
 
-In this example, each map in the list represents a file. The `filename` key specifies the name of the file, the `content` key specifies the content of the file, and the `permissions` key specifies the permissions of the file.
+In this example, each map in the list represents a file. The `filename` key
+specifies the name of the file, the `content` key specifies the content of the
+file, and the `permissions` key specifies the permissions of the file.
 
-To read a list of maps from a YAML file in Terraform, you can use the `yamldecode` function, similar to how you would read a map of maps. However, because the `yamldecode` function returns a dynamic data type, you need to ensure that your Terraform code can handle a list of maps.
+To read a list of maps from a YAML file in Terraform, you can use the
+`yamldecode` function, similar to how you would read a map of maps. However,
+because the `yamldecode` function returns a dynamic data type, you need to
+ensure that your Terraform code can handle a list of maps.
 
-* Modify `files.yml` to have a list of maps.
 * terraform init && terraform fmt && terraform validate
-* If there are any errors, add the error output to your code for debugging.
-* Comment out the module call and run `terraform init`, `terraform fmt`, and `terraform validate` again to check for errors.
-* Run `terraform plan` to see the planned changes. The output should show the list of maps that was read from the `files.yml` file.
+  + show the error that will be generated
+* Comment out the module call in main.tf and run `terraform init`,
+  `terraform fmt`, and `terraform validate` again to check for errors.
+  + show commented code
+* Run `terraform plan` to see the planned changes. The output should show the
+  list of maps that was read from the `files.yml` file.
 
 ## Convert a list of maps to a set of maps
 
