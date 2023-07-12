@@ -26,7 +26,7 @@ We'll start with the same code at the end of the loop_in_module tutorial.
 
 * Create and change to directory `create_from_yaml`
 * Create main.tf
-* Add code
+* Add code to main.tf
 
 ```hcl
 locals {
@@ -44,8 +44,8 @@ output "show_files" {
 ```
 
 * Create and change to module directory `tfmod`
-* Create module main.tf
-* Add code
+* Create versions.tf
+* Add code to versions.tf
 
 ```hcl
 terraform {
@@ -53,7 +53,12 @@ terraform {
     local = { source = "hashicorp/local" }
   }
 }
+```
 
+* Create variables.tf
+* Add code to variables.tf
+
+```hcl
 variable "files" {
   type = map(object({
     filename    = string,
@@ -61,7 +66,12 @@ variable "files" {
     permissions = string
   }))
 }
+```
 
+* Create main.tf
+* Add code to main.tf
+
+```hcl
 locals {
   files = { for file in var.files : file["filename"] => file }
 }
@@ -74,6 +84,8 @@ resource "local_file" "file" {
   file_permission = each.value["permissions"]
 }
 ```
+
+* Create outputs.tf (this file is currently empty)
 
 * Go back one directory to `create_from_yaml`
 * Create yaml file `files.yml`
