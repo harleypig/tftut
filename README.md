@@ -71,14 +71,16 @@ A set of maps is a dict, where the value can be a simple type or an object.
 * comment module call and run init, fmt, validate again
 * terraform plan, show output
 
-## Convert a list of maps
+## Convert a list of maps to a set of maps
 
 !!! Use use_for directory
 
-We need to convert that to a dict. We can use the `merge` function to create
+We need to convert that input to a set of maps. We can use the `for` function to create
 a set of maps.
 
 * Modify `main.tf` to use a for loop and create a set of maps
+* terraform init && terraform fmt && terraform validate
+* terraform plan
 
 
 
