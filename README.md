@@ -111,6 +111,12 @@ modloop2:
 
 !!! use section1.2 directory
 
+* Comment the call to the tfmod module in the main.tf
+  + show commented code
+* terraform init && terraform fmt && terraform validate
+* terraform plan
+  + show expected output
+
 ## Using a yaml list of maps
 
 If that were the only format your yaml data would come in, we'd be done.
