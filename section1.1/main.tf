@@ -1,5 +1,5 @@
 locals {
-  files = yamldecode(file("files.yml"))
+  files = yamldecode(file(var.files))
 }
 
 module "my_file" {

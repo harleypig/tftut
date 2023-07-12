@@ -1,8 +1,8 @@
 locals {
-  files = yamldecode(file("files.yml"))
+  files = yamldecode(file(var.files))
 }
 
-module "my_file" {
-  source = "./tfmod"
-  files  = local.files
-}
+#module "my_file" {
+#  source = "./tfmod"
+#  files  = local.files
+#}

@@ -4,4 +4,5 @@ variable "files" {
     content     = string,
     permissions = string
   }))
+  default = "files.yml"
 }
