@@ -1,9 +1,7 @@
 modloop1.txt:
-  filename: modloop1.txt
   content: first file
   permissions: 0644
 
 modloop2.txt:
-  filename: modloop2.txt
   content: second file
   permissions: 0755

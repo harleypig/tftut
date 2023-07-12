@@ -47,6 +47,12 @@ module "my_file" {
 }
 ```
 
+Here we add a locals block.
+
+This block is used to define a local variable `files` which is assigned the
+value returned by the `yamldecode(file("files.yml"))` function. This function
+reads the `files.yml` file and decodes the YAML content into a Terraform value.
+
 * Create and change to module directory `tfmod`
 * Create `versions.tf` with the following content:
 
