@@ -93,11 +93,11 @@ resource "local_file" "file" {
 
 ```yaml
 modloop1:
-  content: "Hello, World!"
-  permissions: "0644"
+  content: "This is modloop1"
+  permissions: "0777"
 modloop2:
-  content: "Hello, Terraform!"
-  permissions: "0644"
+  content: "This is modloop2"
+  permissions: "0777"
 ```
 
 * terraform init && terraform fmt && terraform validate
@@ -143,11 +143,11 @@ the properties of the object.
 
 ```yaml
 - filename: "modloop1"
-  content: "Hello, World!"
-  permissions: "0644"
+  content: "This is modloop1"
+  permissions: "0777"
 - filename: "modloop2"
-  content: "Hello, Terraform!"
-  permissions: "0644"
+  content: "This is modloop2"
+  permissions: "0777"
 ```
 
 In this example, each map in the list represents a file. The `filename` key
