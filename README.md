@@ -9,6 +9,17 @@ seeing how they were created in Terraform.
 In this tutorial you will learn how to modify the data structure for your
 needs.
 
+We'll start with the same code at the end of the loop_in_module tutorial.
+
+!!! The tfmod has been discussed in a previous tutorial, no need to go into
+!!! details. If necessary a pointer to that tutorial can be included.
+
+!!! The basic details of the main.tf, and other tf files, have already been
+!!! discussed. Don't explain those.
+
+!!! Output for terraform init, fmt, and validate have already been covered.
+!!! Output from these commands will only be shown when they expected to fail.
+
 ## Using a yaml map of maps
 
 !!! Use map_of_maps directory
@@ -16,10 +27,6 @@ needs.
 * Create and change to directory `create_from_yaml`
 * Create main.tf
 * Add code
-  * This file is the main Terraform configuration file. It uses the
-    `yamldecode` function to read the `files.yml` file and store its
-    content in a local variable. It then calls the `my_file` module, passing
-    the local variable as an argument.
 
 ```hcl
 locals {
@@ -39,10 +46,6 @@ output "show_files" {
 * Create and change to module directory `tfmod`
 * Create module main.tf
 * Add code
-  * This file is the Terraform module configuration file. It defines
-    a variable `files` that expects a map of objects. It then creates
-    a `local_file` resource for each item in the `files` map, using the map's
-    keys and values to set the resource's properties.
 
 ```hcl
 terraform {
