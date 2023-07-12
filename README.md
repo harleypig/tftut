@@ -110,7 +110,17 @@ modloop2:
 !!! use section1.2 directory
 
 * Comment the call to the tfmod module in the main.tf
-  + show commented code
+
+```hcl
+locals {
+  files = yamldecode(file(var.files))
+}
+
+#module "my_file" {
+#  source = "./tfmod"
+#  files  = local.files
+#}
+```
 * terraform init && terraform fmt && terraform validate
 * terraform plan
   + show expected output
