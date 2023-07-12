@@ -21,6 +21,21 @@ needs.
     content in a local variable. It then calls the `my_file` module, passing
     the local variable as an argument.
 
+```hcl
+locals {
+  files = yamldecode(file("files.yml"))
+}
+
+module "my_file" {
+  source = "./tfmod"
+  files  = local.files
+}
+
+output "show_files" {
+  value = local.files
+}
+```
+
 * Create and change to module directory `tfmod`
 * Create module main.tf
 * Add code
@@ -28,6 +43,34 @@ needs.
     a variable `files` that expects a map of objects. It then creates
     a `local_file` resource for each item in the `files` map, using the map's
     keys and values to set the resource's properties.
+
+```hcl
+terraform {
+  required_providers {
+    local = { source = "hashicorp/local" }
+  }
+}
+
+variable "files" {
+  type = map(object({
+    filename    = string,
+    content     = string,
+    permissions = string
+  }))
+}
+
+locals {
+  files = { for file in var.files : file["filename"] => file }
+}
+
+resource "local_file" "file" {
+  for_each = local.files
+
+  filename        = each.key
+  content         = each.value["content"]
+  file_permission = each.value["permissions"]
+}
+```
 
 * Go back one directory to `create_from_yaml`
 * Create yaml file `files.yml`
