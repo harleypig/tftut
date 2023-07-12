@@ -11,6 +11,12 @@ needs.
 
 We'll start with the same code at the end of the loop_in_module tutorial.
 
+!!! The starting code is in the loop_in_module directory.
+
+!!! The student is expected to competent in using computers, just not familiar
+!!! with terraform. No need to explain basic concepts like what creating
+!!! a file is.
+
 !!! The tfmod has been discussed in a previous tutorial, no need to go into
 !!! details. If necessary a pointer to that tutorial can be included.
 
