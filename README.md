@@ -163,7 +163,13 @@ ensure that your Terraform code can handle a list of maps.
   + show the error that will be generated
 * Comment out the module call in main.tf and run `terraform init`,
   `terraform fmt`, and `terraform validate` again to check for errors.
-  + show commented code
+
+```hcl
+# module "my_file" {
+#   source = "./tfmod"
+#   files  = local.files
+# }
+```
 * Run `terraform plan` to see the planned changes. The output should show the
   list of maps that was read from the `files.yml` file.
 
