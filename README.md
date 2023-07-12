@@ -98,6 +98,9 @@ file1.txt:
 file2.txt:
   content: "Hello, Terraform!"
   permissions: "0644"
+file3.txt:
+  content: "Hello, YAML!"
+  permissions: "0644"
 ```
 
 * terraform init && terraform fmt && terraform validate
@@ -147,6 +150,9 @@ the properties of the object.
   permissions: "0644"
 - filename: "file2.txt"
   content: "Hello, Terraform!"
+  permissions: "0644"
+- filename: "file3.txt"
+  content: "Hello, YAML!"
   permissions: "0644"
 ```
 
