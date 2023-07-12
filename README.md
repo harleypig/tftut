@@ -121,19 +121,21 @@ locals {
 #  files  = local.files
 #}
 ```
+
 * terraform init && terraform fmt && terraform validate
 * terraform plan
   + show expected output
 
-## Using a yaml list of maps
-
-If that were the only format your yaml data would come in, we'd be done.
-However, yaml data can also come in the following format.
+## tfmod requires a set of maps
 
 The `tfmod` module is using `for_each` which expects either a set of objects
 or a set of maps. (Link confluence page here)
 
-## A set of objects
+The `tfmod` module is expecting a data structure that includes an attribute
+called `filename` which it will use as a key for the objects that were passed
+in.
+
+### A set of objects
 
 A set of objects is an array of simple strings.
 
@@ -141,7 +143,7 @@ A set of objects is an array of simple strings.
 [ 'string1', 'string2', ... ]
 ```
 
-## A set of maps
+### A set of maps
 
 A set of maps is a dict, where the value can be a simple type or an object.
 
@@ -153,8 +155,6 @@ A set of maps is a dict, where the value can be a simple type or an object.
 ```
 
 ## Read a list of maps from YAML
-
-!!! Use list_of_maps directory and show_first directories.
 
 In some cases, your YAML data might be structured as a list of maps. This is
 a common format for representing a collection of similar objects. Each map in

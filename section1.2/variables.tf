@@ -1,8 +1,5 @@
 variable "files" {
-  type = list(object({
-    filename    = string,
-    content     = string,
-    permissions = string
-  }))
-  default = "files.yml"
+  type        = string
+  description = "name of yaml file"
+  default     = "files.yml"
 }
