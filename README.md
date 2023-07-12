@@ -26,7 +26,7 @@ We'll start with the same code at the end of the loop_in_module tutorial.
 !!! Output for terraform init, fmt, and validate have already been covered.
 !!! Output from these commands will only be shown when they expected to fail.
 
-## Using a yaml map of maps
+## Processing YAML Data Structured as a Map of Maps
 
 !!! Use section1.1 directory
 
