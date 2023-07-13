@@ -340,4 +340,6 @@ module "my_file" {
 }
 ```
 
+In the above code, the `fileset` function is used to generate a list of all YAML files in the specified directory and its subdirectories. This list is then iterated over, and for each file, its content is decoded from YAML into a Terraform value. The `flatten` function is used to convert the resulting list of lists into a single list. This makes it easier to work with the data in subsequent steps.
+
 
