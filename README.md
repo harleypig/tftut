@@ -23,14 +23,14 @@ We'll start with the same code at the end of the loop_in_module tutorial.
 
 !!! Output from these commands will only be shown when they expected to fail.
 
-## Processing YAML Data Structured as a Map of Maps
+## Processing YAML Data Structured as a Map of Maps.
 
-!!! Use section1.1 directory
+!!! Use section1.1 directory.
 
-!!! Note differences between loop_in_module (end of last tutorial) and map_of_maps
+!!! Note differences between loop_in_module (end of last tutorial) and map_of_maps.
 
-* Create and change to directory `create_from_yaml`
-* Create and change to module directory `tfmod`
+* Create and change to directory `create_from_yaml`.
+* Create and change to module directory `tfmod`.
 * Create `versions.tf` with the following content:
 
 ```hcl
