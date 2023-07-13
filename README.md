@@ -27,6 +27,12 @@ We'll start with the same code at the end of the loop_in_module tutorial.
 
 ## Additional Information
 
+For more information on the Terraform functions used in this tutorial, you can refer to the official Terraform documentation:
+
+- [`fileset`](https://www.terraform.io/docs/language/functions/fileset.html): Generates a list of files that match a given pattern in a given directory.
+- [`flatten`](https://www.terraform.io/docs/language/functions/flatten.html): Takes a list and replaces any elements that are lists with a flattened sequence of the list contents.
+- [`merge`](https://www.terraform.io/docs/language/functions/merge.html): Takes an arbitrary number of maps or objects, and returns a single map or object that includes a combination of all the elements of the given maps or objects.
+
 ## Processing YAML Data Structured as a Map of Maps.
 
 !!! Use section1.1 directory.
