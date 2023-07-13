@@ -234,7 +234,9 @@ module "my_file" {
   source = "./tfmod"
   files  = local.files
 }
+```
 
+In the `locals` block, `_files` is a local variable that holds the result of decoding the YAML file specified in `var.files`. This decoded data is a list of maps, where each map represents a file with its attributes. The `files` local variable then transforms this list of maps into a map of maps, where the key is the filename and the value is the corresponding map of attributes. This transformation is necessary because the `tfmod` module expects a map of maps as input.
 ```
 
 In this example, `local._files` is a list of maps. The `for` function iterates
