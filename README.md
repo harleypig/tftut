@@ -23,6 +23,10 @@ We'll start with the same code at the end of the loop_in_module tutorial.
 
 !!! Output from these commands will only be shown when they expected to fail.
 
+!!! yamldecode has already been discussed in a previous tutorial
+
+## Additional Information
+
 ## Processing YAML Data Structured as a Map of Maps.
 
 !!! Use section1.1 directory.
