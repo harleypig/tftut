@@ -139,27 +139,36 @@ locals {
 The `tfmod` module is using `for_each` which expects either a set of objects
 or a set of maps. (Link confluence page here)
 
-The `tfmod` module is expecting a data structure that includes an attribute
-called `filename` which it will use as a key for the objects that were passed
-in.
-
-### A set of objects
-
-A set of objects is an array of simple strings.
+A "set of objects" in Terraform is an array of simple strings, like this:
 
 ```
 [ 'string1', 'string2', ... ]
 ```
 
-### A set of maps
-
-A set of maps is a dict, where the value can be a simple type or an object.
+A "set of maps" in Terraform is a dictionary-like structure, where each key is associated with a value that can be a simple type or an object, like this:
 
 ```
 {
   key1 => object,
   key2 => object
 }
+```
+
+The `tfmod` module is expecting a data structure that includes an attribute
+called `filename` which it will use as a key for the objects that were passed
+in.
+
+## Read a list of maps from YAML
+
+!!! use section2.1 directory
+
+A "list of maps" in Terraform is an array of dictionaries, where each dictionary represents a map of key-value pairs. For example:
+
+```
+[
+  { "key1" => "value1", "key2" => "value2" },
+  { "key3" => "value3", "key4" => "value4" }
+]
 ```
 
 ## Read a list of maps from YAML
