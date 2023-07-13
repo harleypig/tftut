@@ -1,0 +1,7 @@
+modloop3.txt:
+  content: third file
+  permissions: 0644
+
+modloop4.txt:
+  content: fourth file
+  permissions: 0755
