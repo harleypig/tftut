@@ -39,6 +39,8 @@ For more information on the Terraform functions used in this tutorial, you can r
 
 !!! Note differences between loop_in_module (end of last tutorial) and map_of_maps.
 
+!!! From this point on, we are working within the create_from_yaml directory.  It is assumed the student is aware of this.
+
 * Create and change to directory `create_from_yaml`.
 * Create and change to module directory `tfmod`.
 * Create `versions.tf` with the following content:
