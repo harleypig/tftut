@@ -306,7 +306,38 @@ Sometimes you want to keep your data separated into different files.
 
 * Create a directory called `yaml`.
 * Move the `files.yml` to the `yaml` directory.
-* Create a second file in the yaml directory
+* Create a second file called `files2.yml` in the yaml directory
   + Change to the yaml directory
+
+```yaml
+modloop3.txt:
+  content: third file
+  permissions: 0644
+modloop4.txt:
+  content: fourth file
+  permissions: 0755
+```
+
+* Modify the `main.tf` to read multiple files.
+
+```hcl
+locals {
+  _files = flatten([
+    for file in fileset(var.yaml_dir, "**/*.yml") : [
+      for key, data in yamldecode(file("${var.yaml_dir}/${file}")) :
+      merge(data, {
+        filename    = "${key}"
+        content     = data.content
+        permissions = data.permissions
+  })]])
+
+  files = { for file in local._files : file["filename"] => file }
+}
+
+module "my_file" {
+  source = "./tfmod"
+  files  = local.files
+}
+```
 
 
