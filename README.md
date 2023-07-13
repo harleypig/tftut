@@ -13,25 +13,21 @@ We'll start with the same code at the end of the loop_in_module tutorial.
 
 !!! The starting code is in the loop_in_module directory.
 
-!!! The student is expected to competent in using computers, just not familiar
-!!! with terraform. No need to explain basic concepts like what creating
-!!! a file is.
+!!! The student is expected to competent in using computers, just not familiar with terraform. No need to explain basic concepts like what creating a file is.
 
-!!! The tfmod has been discussed in a previous tutorial, no need to go into
-!!! details. If necessary a pointer to that tutorial can be included.
+!!! The tfmod has been discussed in a previous tutorial, no need to go into details. If necessary a pointer to that tutorial can be included.
 
-!!! The basic details of the main.tf, and other tf files, have already been
-!!! discussed. Don't explain those.
+!!! The basic details of the main.tf, and other tf files, have already been discussed. Don't explain those.
 
 !!! Output for terraform init, fmt, and validate have already been covered.
+
 !!! Output from these commands will only be shown when they expected to fail.
 
 ## Processing YAML Data Structured as a Map of Maps
 
 !!! Use section1.1 directory
 
-!!! Note differences between loop_in_module (end of last tutorial) and
-!!! map_of_maps
+!!! Note differences between loop_in_module (end of last tutorial) and map_of_maps
 
 * Create and change to directory `create_from_yaml`
 * Create and change to module directory `tfmod`
@@ -156,12 +152,20 @@ A set of maps is a dict, where the value can be a simple type or an object.
 
 ## Read a list of maps from YAML
 
-!!! use section1.3 directory
+!!! use section2.1 directory
 
-In some cases, your YAML data might be structured as a list of maps. This is
-a common format for representing a collection of similar objects. Each map in
-the list represents an object, and the keys and values in the map represent
-the properties of the object.
+* Uncomment the call to the module in your main.tf
+
+```yaml
+locals {
+  files = yamldecode(file(var.files))
+}
+
+module "my_file" {
+  source = "./tfmod"
+  files  = local.files
+}
+```
 
 * Modify `files.yml` to have a list of maps.
 
@@ -174,22 +178,43 @@ the properties of the object.
   permissions: "0777"
 ```
 
-In this example, each map in the list represents a file. The `filename` key
-specifies the name of the file, the `content` key specifies the content of the
-file, and the `permissions` key specifies the permissions of the file.
+* terraform init && terraform fmt && terraform validate
+* terraform plan
+  + show expected error
 
-To read a list of maps from a YAML file in Terraform, you can use the
-`yamldecode` function, similar to how you would read a map of maps. However,
-because the `yamldecode` function returns a dynamic data type, you need to
-ensure that your Terraform code can handle a list of maps.
+* Modify `tfmod/variables.tf` to use a list instead of a map
+
+```yaml
+variable "files" {
+  type = list(object({
+    filename    = string,
+    content     = string,
+    permissions = string
+  }))
+}
+```
 
 * terraform init && terraform fmt && terraform validate
-* Run `terraform plan` to see the planned changes. The output should show the
-  list of maps that was read from the `files.yml` file.
+* terraform plan
+  + show expected output
 
 ## Convert a list of maps to a set of maps
 
-!!! Use use_for directory
+!!! Use section3.1 directory
+
+Sometimes we can't change the module we are using.
+
+* Modify `tfmod/variables.tf` to its previous state
+
+```yaml
+variable "files" {
+  type = map(object({
+    filename    = string,
+    content     = string,
+    permissions = string
+  }))
+}
+```
 
 We need to convert that input to a set of maps. We can use the `for` function
 to create a set of maps. The `for` function in Terraform allows you to iterate
@@ -197,14 +222,19 @@ over a collection and transform it into a new collection. In this case, we are
 transforming a list of maps into a set of maps. This is done by iterating over
 each map in the list and creating a new map with the desired structure.
 
-Here is an example of how you can use the `for` function to convert a list of
-maps to a set of maps:
+* Modify `main.tf` to match the following code
 
 ```hcl
 locals {
-  _files = yamldecode(file("files.yml"))
+  _files = yamldecode(file(var.files))
   files  = { for file in local._files : file["filename"] => file }
 }
+
+module "my_file" {
+  source = "./tfmod"
+  files  = local.files
+}
+
 ```
 
 In this example, `local._files` is a list of maps. The `for` function iterates
@@ -212,10 +242,29 @@ over each map in the list (represented by `file`), and for each iteration, it
 creates a new map where the key is `file["filename"]` and the value is the
 entire `file` map. The result is a set of maps stored in `local.files`.
 
-* Modify `main.tf` to use a for loop and create a set of maps
 * terraform init && terraform fmt && terraform validate
 * terraform plan
+  + show expected output
 
+## Convert data from yaml to something the tfmod can use
 
+!!! use section3.2 directory
 
+Sometimes you can neither change the data format nor the module code; you need
+to convert your data from one format to another. We'll be using the `merge`
+and `flatten` functions to do this.
 
+* Modify `files.yml` to its original format.
+
+```yaml
+modloop1.txt:
+  content: first file
+  permissions: 0644
+modloop2.txt:
+  content: second file
+  permissions: 0755
+```
+
+* terraform init && terraform fmt && terraform validate
+* terraform plan
+  + show expected error
