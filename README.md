@@ -286,8 +286,27 @@ module "my_file" {
 }
 ```
 
-In the `locals` block, the `merge` function is used within a `for` loop to combine two maps into one. The first map is `file`, which is the current item in the loop iteration, and the second map is a new map created with the keys `filename`, `content`, and `permissions`. The values of these keys are taken from the `key` variable and the `file` map. The `merge` function returns a new map that includes all the key-value pairs from both input maps. If the same key exists in both maps, the value from the second map is used.
+In the `locals` block, the `merge` function is used within a `for` loop to
+combine two maps into one. The first map is `file`, which is the current item
+in the loop iteration, and the second map is a new map created with the keys
+`filename`, `content`, and `permissions`. The values of these keys are taken
+from the `key` variable and the `file` map. The `merge` function returns a new
+map that includes all the key-value pairs from both input maps. If the same
+key exists in both maps, the value from the second map is used.
 
 * terraform init && terraform fmt && terraform validate
 * terraform plan
-  + show expected error
+  + show expected output
+
+## Read YAML from multiple files
+
+!!! Use section 3.3 directory
+
+Sometimes you want to keep your data separated into different files.
+
+* Create a directory called `yaml`.
+* Move the `files.yml` to the `yaml` directory.
+* Create a second file in the yaml directory
+  + Change to the yaml directory
+
+
