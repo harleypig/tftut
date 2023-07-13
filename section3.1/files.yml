@@ -1,0 +1,6 @@
+- filename: modloop1.txt
+  content: first file
+  permissions: 0644
+- filename: modloop2.txt
+  content: second file
+  permissions: 0755
